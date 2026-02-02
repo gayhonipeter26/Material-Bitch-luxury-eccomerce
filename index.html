@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Bitch | Official Bespoke High-End Jewelry</title>
+  <meta name="description"
+    content="Material Bitch - The pinnacle of unapologetic luxury and bespoke jewelry craftsmanship. Explore our exclusive diamond and gold collections.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@100;200;300;400;500;600&family=Mrs+Saint+Delafield&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #d4af37;
+      --primary-bright: #f1d279;
+      --primary-dark: #8e6d13;
+      --bg-dark: #070707;
+      --bg-accent: #0f0f0f;
+      --bg-card: #141414;
+      --text-light: #ffffff;
+      --text-muted: #888888;
+      --glass: rgba(10, 10, 10, 0.85);
+      --border: rgba(212, 175, 55, 0.15);
+      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Core Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-dark);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-font {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .loader-logo {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInOut 2s infinite;
+    }
+
+    .loader-bar {
+      width: 200px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .loader-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background: var(--primary);
+      animation: progress 2.5s forwards;
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeInOut {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      transition: var(--transition);
+    }
+
+    nav.scrolled {
+      padding: 15px 0;
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 2000;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 1px;
+      background: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .nav-links a {
+      font-weight: 200;
+      letter-spacing: 0.25em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 30px;
+      font-size: 1.15rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 110vh;
+      /* Slightly more for parallax scroll */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: url('hero.png') no-repeat center bottom/cover;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(7, 7, 7, 1) 0%, rgba(7, 7, 7, 0.3) 50%, rgba(7, 7, 7, 0.8) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 1000px;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7em;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 7.5rem;
+      line-height: 0.9;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* Premium Button Style */
+    .btn {
+      display: inline-block;
+      padding: 22px 55px;
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-size: 0.75rem;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .btn:hover {
+      color: #000;
+    }
+
+    .btn:hover::before {
+      width: 100%;
+    }
+
+    /* Grid Sections */
+    section {
+      padding: 160px 0;
+    }
+
+    .section-header {
+      margin-bottom: 120px;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-num {
+      font-family: 'Outfit';
+      font-weight: 200;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: block;
+      letter-spacing: 0.2em;
+    }
+
+    .section-header h2 {
+      font-size: 4.5rem;
+      margin-bottom: 25px;
+      line-height: 1.1;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 650px;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* Collections Card Enhanced */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .product-card {
+      position: relative;
+      background: var(--bg-accent);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      transition: var(--transition);
+    }
+
+    .product-img {
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .badge {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #000;
+      padding: 5px 15px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    .product-hover-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 40px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 5;
+    }
+
+    .product-card:hover {
+      border-color: var(--border);
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.1);
+    }
+
+    .product-card:hover .product-hover-info {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .specs {
+      font-size: 0.75rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .product-info {
+      padding: 40px 0;
+      text-align: left;
+    }
+
+    .product-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-family: 'Outfit';
+      font-weight: 200;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* Bespoke Experience Detailed */
+    #bespoke {
+      background: var(--bg-accent);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .bespoke-content {
+      display: flex;
+      align-items: center;
+      gap: 120px;
+    }
+
+    .bespoke-text h2 {
+      font-size: 5rem;
+      margin-bottom: 40px;
+    }
+
+    .feature-list {
+      margin-bottom: 50px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+      color: var(--text-muted);
+    }
+
+    .feature-item i {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    /* Testimonials Detail */
+    #testimonials {
+      text-align: center;
+    }
+
+    .quote-icon {
+      font-size: 3rem;
+      color: var(--primary-dark);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-size: 2.8rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      line-height: 1.3;
+      color: #dfdfdf;
+    }
+
+    .testimonial-author {
+      font-family: 'Outfit';
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* Detailed Footer */
+    footer {
+      padding: 150px 0 60px;
+      background: #050505;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 100px;
+    }
+
+    .footer-logo {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+    }
+
+    .footer-links h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.9rem;
+      margin-bottom: 35px;
+      color: #fff;
+    }
+
+    .footer-links li {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-weight: 200;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .payment-icons {
+      display: flex;
+      gap: 25px;
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .signature {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-top: 20px;
+    }
+
+    .manifesto-section {
+      background: var(--bg-accent);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .artisan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 15px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .artisan-badge i {
+      color: var(--primary);
+    }
+
+    /* Contact Section Detail */
+    #contact {
+      background: var(--bg-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 100px;
+      align-items: flex-start;
+    }
+
+    .contact-info h2 {
+      font-size: 4rem;
+      margin-bottom: 50px;
+    }
+
+    .info-block {
+      margin-bottom: 45px;
+    }
+
+    .info-block h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 0.8rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .info-block p,
+    .info-block a {
+      font-size: 1.1rem;
+      font-weight: 200;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      background: var(--bg-accent);
+      padding: 80px;
+      border: 1px solid var(--border);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.65rem;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 0;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-bottom-color: var(--primary);
+    }
+
+    .price-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    .price-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .price-modal-content {
+      background: var(--bg-card);
+      width: 90%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      position: relative;
+      transform: translateY(50px);
+      transition: var(--transition);
+    }
+
+    .price-modal.open .price-modal-content {
+      transform: translateY(0);
+    }
+
+    .price-modal-img {
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .price-modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .price-modal-details {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .price-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+    }
+
+    .price-value {
+      font-family: 'Outfit';
+      font-weight: 300;
+    }
+
+    .total-row {
+      margin-top: 30px;
+      border-bottom: none;
+    }
+
+    .total-row .price-label {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .total-row .price-value {
+      font-size: 2rem;
+      color: var(--text-light);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      z-index: 10;
+    }
+
+    /* Floating Concierge */
+    #concierge-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 900;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Shopping Sidebar Detail */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 500px;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 2000;
+      padding: 60px;
+      transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .cart-sidebar.open {
+      right: 0;
+    }
+
+    .cart-header h3 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+
+    /* Stories Section Detailed */
+    #stories {
+      background: var(--bg-dark);
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .story-card {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      filter: grayscale(40%) contrast(110%);
+    }
+
+    .story-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      transition: var(--transition);
+    }
+
+    .story-card:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%) contrast(105%);
+    }
+
+    .story-category {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-size: 0.75rem;
+      margin-bottom: 12px;
+    }
+
+    .story-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .story-read {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--primary);
+      width: fit-content;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .story-card:hover .story-read {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Concierge Widget Detail */
+    .concierge-widget {
+      position: fixed;
+      bottom: 110px;
+      right: 40px;
+      width: 380px;
+      height: 500px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      z-index: 2500;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .concierge-widget.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .concierge-header {
+      padding: 30px;
+      background: var(--bg-accent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .concierge-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+    }
+
+    .concierge-messages {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .msg {
+      max-width: 80%;
+      padding: 15px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .msg.bot {
+      background: rgba(255, 255, 255, 0.03);
+      align-self: flex-start;
+      border-left: 2px solid var(--primary);
+    }
+
+    .concierge-input {
+      padding: 20px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Mobile & Tablet Overhaul */
+    @media (max-width: 1200px) {
+      .container {
+        width: 95%;
+        padding: 0 40px;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 5rem;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bespoke-content {
+        flex-direction: column;
+        gap: 60px;
+      }
+
+      .bespoke-text,
+      .bespoke-image {
+        width: 100%;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .price-modal-content {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .price-modal-img {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 100px 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        font-size: 1.5rem;
+        z-index: 1500;
+        gap: 30px;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero-title {
+        font-size: 3rem !important;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem !important;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .bespoke-text h2 {
+        font-size: 3.5rem !important;
+      }
+
+      .stories-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .club-content {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 50px !important;
+      }
+
+      .club-image {
+        height: 400px !important;
+        width: 100% !important;
+      }
+
+      .club-text form {
+        flex-direction: column;
+      }
+
+      .contact-form {
+        padding: 40px 20px !important;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .footer-about {
+        align-items: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .concierge-widget {
+        width: 90% !important;
+        right: 5% !important;
+        bottom: 85px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem !important;
+      }
+
+      .signature {
+        font-size: 2.5rem !important;
+      }
+
+      .testimonial-text {
+        font-size: 1.8rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-logo brand-font">Material Bitch</div>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"
+    style="position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:1500; opacity:0; visibility:hidden; transition: 0.6s;">
+  </div>
+
+  <!-- Price Exploration Modal -->
+  <div class="price-modal" id="priceModal">
+    <div class="price-modal-content">
+      <i class="fas fa-times close-modal" id="closePriceModal"></i>
+      <div class="price-modal-img">
+        <img id="modalImg" src="" alt="Product view">
+      </div>
+      <div class="price-modal-details">
+        <span class="section-num" id="modalBatch">Collection Item</span>
+        <h2 id="modalTitle" class="brand-font" style="font-size: 3rem; margin-bottom: 40px;">Product Title</h2>
+
+        <div class="price-item">
+          <span class="price-label">Raw Material (Metal)</span>
+          <span class="price-value" id="metalPrice">$4,200</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Gemstones & Sourcing</span>
+          <span class="price-value" id="gemPrice">$8,500</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Artisan Labor (Atelier)</span>
+          <span class="price-value" id="laborPrice">$1,550</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Insurance & GIA Cert</span>
+          <span class="price-value">$0.00 (Incl.)</span>
+        </div>
+
+        <div class="price-item total-row">
+          <span class="price-label">Total Investment</span>
+          <span class="price-value brand-font" id="modalTotal">$14,250</span>
+        </div>
+
+        <div style="margin-top: 40px; display: flex; gap: 20px;">
+          <a href="#" class="btn"
+            style="padding: 15px 30px; font-size: 0.7rem; width: 100%; text-align: center;">Acquire Piece</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header"
+      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+      <h3 class="brand-font">Bag</h3>
+      <i class="fas fa-times" id="closeCart" style="font-size: 1.5rem; cursor: pointer;"></i>
+    </div>
+    <div class="cart-items" style="flex: 1; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
+      <p style="color: var(--text-muted); text-align: center; margin-top: 100px; letter-spacing: 0.1em;">Reserved
+        exclusively for you.</p>
+    </div>
+    <div class="cart-footer" style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+        <span style="text-transform: uppercase; letter-spacing: 0.1em;">Subtotal</span>
+        <span class="brand-font" style="font-size: 1.5rem;">$0.00</span>
+      </div>
+      <a href="#" class="btn" style="width: 100%; text-align: center;">Proceed to Checkout</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo brand-font">Material Bitch</a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#collections">Fine Jewelry</a></li>
+        <li><a href="#bespoke">Bespoke</a></li>
+        <li><a href="#stories">Editorial</a></li>
+        <li><a href="#club">The Club</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <i class="fas fa-search"></i>
+        <i class="far fa-user"></i>
+        <div id="openCart" style="position: relative;">
+          <i class="fas fa-shopping-bag"></i>
+          <span
+            style="position: absolute; top: -10px; right: -10px; font-size: 0.6rem; background: var(--primary); color: #000; width: 15px; height: 15px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 700;">0</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <section id="hero">
+      <div class="hero-content">
+        <span class="hero-tagline">Autumn / Winter 2026</span>
+        <h1 class="hero-title">Beyond The<br>Obsession</h1>
+        <div style="display: flex; justify-content: center; gap: 30px;">
+          <a href="#collections" class="btn">Shop Collection</a>
+          <a href="#bespoke" class="btn" style="border-color: rgba(255,255,255,0.2);">Private Viewing</a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Collections Section -->
+  <section id="collections">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01 / COLLECTIONS</span>
+        <h2>Curated Selection</h2>
+        <div class="collection-intro"
+          style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap;">
+          <p style="max-width: 650px;">Hand-crafted in our underground London atelier. Each stone is audited for
+            "Material Bitch" grade brilliance—nothing less than VVS1 Clarity and D-Color diamonds.</p>
+          <div style="display: flex; gap: 20px;">
+            <i class="fas fa-chevron-left" style="opacity: 0.2; cursor: pointer;"></i>
+            <i class="fas fa-chevron-right" style="cursor: pointer; color: var(--primary);"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="collection-grid">
+        <!-- 20 Products in 4-column rows -->
+        <!-- Row 1 -->
+        <div class="product-card">
+          <div class="badge">Limited</div>
+          <div class="product-img">
+            <img src="ring.png" alt="Architectural Ring">
+            <div class="product-hover-info">
+              <div class="specs">18K White Gold | 2.5ct Pear Cut</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Architectural Band</h3>
+            <p class="price">$14,250</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="hero.png" alt="Empress Necklace">
+            <div class="product-hover-info">
+              <div class="specs">Platinum | 12ct Radiant Diamonds</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Empress Choker</h3>
+            <p class="price">$28,800</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="earrings.png" alt="Noir Hoops">
+            <div class="product-hover-info">
+              <div class="specs">18K Yellow Gold | Baroque Pearls</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Midnight Drops</h3>
+            <p class="price">$5,900</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="portrait.png" alt="Vogue Medallion">
+            <div class="product-hover-info">
+              <div class="specs">24K Rose Gold | Sunburst Diamonds</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Vogue Medallion</h3>
+            <p class="price">$9,100</p>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="product-card">
+          <div class="badge">New</div>
+          <div class="product-img">
+            <img src="ring.png" alt="Infinity Band" style="filter: hue-rotate(45deg);">
+            <div class="product-hover-info">
+              <div class="specs">Champagne Gold | Micro-pavé</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Infinity Band</h3>
+            <p class="price">$6,700</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="exhibition.png" alt="Astral Pendant">
+            <div class="product-hover-info">
+              <div class="specs">Platinum | Single Solitaire</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Gallery Pendant</h3>
+            <p class="price">$15,400</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="bespoke.png" alt="Elysian Hoops" style="object-position: top;">
+            <div class="product-hover-info">
+              <div class="specs">Bespoke Gold | Hand-Inlaid</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Elysian Hoops</h3>
+            <p class="price">$4,200</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="exhibition.png" alt="Royal Tiara" style="filter: brightness(1.2);">
+            <div class="product-hover-info">
+              <div class="specs">Archive Batch | Diamond Encrusted</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Exhibition Tiara</h3>
+            <p class="price">$45,000</p>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="product-card">
+          <div class="badge">Rare</div>
+          <div class="product-img">
+            <img src="bespoke.png" alt="Artisan Cuff">
+            <div class="product-hover-info">
+              <div class="specs">Hand-forged Gold | Signature Style</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Artisan Cuff</h3>
+            <p class="price">$12,000</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="ring.png" alt="Halo Solitaire" style="transform: scale(1.2);">
+            <div class="product-hover-info">
+              <div class="specs">Platinum | Oval Cut Diamond</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Halo Solitaire</h3>
+            <p class="price">$22,500</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="hero.png" alt="Crystal Choker" style="filter: sepia(0.3);">
+            <div class="product-hover-info">
+              <div class="specs">Rose Tinted Diamonds | Custom Link</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Crystal Choker</h3>
+            <p class="price">$8,200</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="earrings.png" alt="Pearl Drop" style="filter: contrast(1.2);">
+            <div class="product-hover-info">
+              <div class="specs">South Sea Pearl | Diamond Cap</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Pearl Essence</h3>
+            <p class="price">$3,800</p>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="product-card">
+          <div class="product-img">
+            <img src="portrait.png" alt="Aura Amulet" style="filter: grayscale(1);">
+            <div class="product-hover-info">
+              <div class="specs">Noir Edition | Carbon & Gold</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Aura Amulet</h3>
+            <p class="price">$18,600</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="bespoke.png" alt="Craftsman Ring" style="filter: brightness(0.8);">
+            <div class="product-hover-info">
+              <div class="specs">Shadow Gold | Unique Texture</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Craftsman Band</h3>
+            <p class="price">$5,400</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="badge">Museum</div>
+          <div class="product-img">
+            <img src="exhibition.png" alt="Artifact Necklace" style="object-position: bottom;">
+            <div class="product-hover-info">
+              <div class="specs">Replica Batch | Master Craft</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Artifact Piece</h3>
+            <p class="price">$31,000</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="ring.png" alt="Baguette Ring" style="filter: saturate(0.5);">
+            <div class="product-hover-info">
+              <div class="specs">Cool Platinum | Baguette Cut</div>
+              <a href="javascript:void(0)" class="btn explore-price-btn"
+                style="padding: 12px 30px; font-size: 0.6rem;">Explore Price</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Baguette Band</h3>
+            <p class="price">$7,800</p>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="product-card">
+          <div class="product-img">
+            <img src="hero.png" alt="Golden Chain" style="filter: contrast(0.8);">
+            <div class="product-hover-info">
+              <div class="specs">Classic 24K | Heavy Link</div>
+              <a href="#" class="btn" style="padding: 12px 30px; font-size: 0.6rem;">Explore Piece</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>24K Anchor Chain</h3>
+            <p class="price">$19,900</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="earrings.png" alt="Stellar Studs" style="filter: hue-rotate(-30deg);">
+            <div class="product-hover-info">
+              <div class="specs">Frozen Diamonds | 2ct Each</div>
+              <a href="#" class="btn" style="padding: 12px 30px; font-size: 0.6rem;">Explore Piece</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Stellar Studs</h3>
+            <p class="price">$11,500</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="portrait.png" alt="Sun Choker" style="filter: brightness(1.3) contrast(1.1);">
+            <div class="product-hover-info">
+              <div class="specs">Yellow Radiance | Radiant Halo</div>
+              <a href="#" class="btn" style="padding: 12px 30px; font-size: 0.6rem;">Explore Piece</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Soleil Choker</h3>
+            <p class="price">$25,400</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="badge">Elite</div>
+          <div class="product-img">
+            <img src="exhibition.png" alt="Exhibition Cuff" style="filter: invert(0.05);">
+            <div class="product-hover-info">
+              <div class="specs">Matte Gold & Tech-Fiber</div>
+              <a href="#" class="btn" style="padding: 12px 30px; font-size: 0.6rem;">Explore Piece</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Elite Carbon Cuff</h3>
+            <p class="price">$16,700</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bespoke Section Detailed -->
+  <section id="bespoke">
+    <div class="container">
+      <div class="bespoke-content">
+        <div class="bespoke-text">
+          <div class="artisan-badge">
+            <i class="fas fa-hand-sparkles"></i>
+            The Human Element
+          </div>
+          <span class="section-num">02 / CRAFTSMANSHIP</span>
+          <h2>The Bespoke Commission</h2>
+          <p>Your legacy, translated into material form. Our Master Jeweler, <strong>Alistair Thorne</strong>, conducts
+            a one-on-one discovery session to understand your aesthetic soul before a single sketch is drawn. No robots,
+            no mass production—just human brilliance.</p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <i class="fas fa-gem"></i>
+              <span>GIA Certified Diamond Auditing</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-pencil-ruler"></i>
+              <span>3D CAD & Wax Prototype Modeling</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Lifetime Restoration Guarantee</span>
+            </div>
+          </div>
+
+          <a href="#" class="btn">Book Private Discovery</a>
+        </div>
+        <div class="bespoke-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <div class="testimonial-slider">
+        <div class="testimonial-item">
+          <p class="testimonial-text">"The Empress Choker isn't just jewelry. It's armor. It's the physical
+            manifestation of my own power. Unapologetic luxury at its peak."</p>
+          <div class="testimonial-author">— Victoria S. | Vogue Editorial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder's Manifesto -->
+  <section class="manifesto-section">
+    <div class="container" style="max-width: 900px; text-align: center;">
+      <span class="section-num">THE VISIONARY</span>
+      <h2 style="font-size: 3.5rem; margin-bottom: 30px;">A Note from the Founder</h2>
+      <p
+        style="font-size: 1.4rem; color: #dfdfdf; font-family: 'Cormorant Garamond'; line-height: 1.5; margin-bottom: 40px; font-style: italic;">
+        "Material Bitch was never about the jewelry. It was about the audacity to exist loudly. We don't just set
+        diamonds; we set benchmarks for how a modern icon should present themselves to the world. Every piece you see
+        here has passed through my hands, and every story told here is a piece of my soul. Welcome to a world where
+        being 'extra' is the bare minimum."
+      </p>
+      <div class="signature">Material Bitch</div>
+      <p
+        style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.3em; color: var(--text-muted); margin-top: 10px;">
+        Founder & Creative Director</p>
+    </div>
+  </section>
+
+  <!-- Stories Section -->
+  <section id="stories">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-num">03 / ARCHIVE</span>
+        <h2>Editorial Perspective</h2>
+      </div>
+
+      <div class="stories-grid">
+        <div class="story-card">
+          <img src="bespoke.png" alt="Craftsmanship story">
+          <div class="story-overlay">
+            <span class="story-category">Craft</span>
+            <h3 class="story-title">Deep Gold: The Extraction Process</h3>
+            <span class="story-read">View Entry</span>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <img src="exhibition.png" alt="Exhibition story">
+          <div class="story-overlay">
+            <span class="story-category">Exhibition</span>
+            <h3 class="story-title">Bitch at the Louvre: A Night of Excess</h3>
+            <span class="story-read">View Entry</span>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <img src="portrait.png" alt="Collection story">
+          <div class="story-overlay">
+            <span class="story-category">Campaign</span>
+            <h3 class="story-title">Modern Royalty: The Winter Muse</h3>
+            <span class="story-read">View Entry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Club Section -->
+  <section id="club" style="background: linear-gradient(to right, #0a0a0a, #1a1a1a); padding: 120px 0;">
+    <div class="container club-content" style="display: flex; align-items: center; gap: 80px;">
+      <div class="club-text" style="flex: 1;">
+        <span class="section-num">MEMBERSHIP</span>
+        <h2 style="font-size: 4.5rem; margin-bottom: 20px;">Join The Unapologetic</h2>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px;">Become a part of the internal
+          circle. Receive priority access to new drops, archive sales, and private exhibition invitations.</p>
+
+        <ul style="margin-bottom: 50px;">
+          <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+            <i class="fas fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+            <span>First-look priority on All Drops</span>
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+            <i class="fas fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+            <span>Quarterly Print Journal "Material"</span>
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+            <i class="fas fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+            <span>Member-only Archive Access</span>
+          </li>
+        </ul>
+
+        <form style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="email" class="form-control" placeholder="YOUR EMAIL ADDRESS"
+            style="max-width: 400px; border-bottom: 1px solid var(--primary);">
+          <button type="submit" class="btn" style="padding: 15px 40px; font-size: 0.7rem;">Apply</button>
+        </form>
+      </div>
+      <div class="club-image" style="flex: 1; height: 600px; overflow: hidden; border: 1px solid var(--border);">
+        <img src="portrait.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Concierge -->
+  <div id="concierge-btn">
+    <i class="fas fa-comment-dots" style="color:#000; font-size: 1.2rem;"></i>
+  </div>
+
+  <!-- Concierge Widget -->
+  <div class="concierge-widget" id="conciergeWidget">
+    <div class="concierge-header">
+      <div class="concierge-avatar">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div>
+        <h4 style="font-size: 0.9rem;">Private Concierge</h4>
+        <div style="font-size: 0.65rem; color: var(--primary); display: flex; align-items: center; gap: 5px;">
+          <span style="width: 6px; height: 6px; background: #00ff00; border-radius: 50%;"></span>
+          Online now
+        </div>
+      </div>
+    </div>
+    <div class="concierge-messages" id="conciergeMsgs">
+      <div class="msg bot">
+        Greetings. I am your personal guide to the Material Bitch collections. How may I assist your pursuit of
+        brilliance today?
+      </div>
+    </div>
+    <div class="concierge-input">
+      <input type="text" placeholder="Type your message..."
+        style="background: transparent; border: none; color: #fff; flex: 1; outline: none; font-size: 0.8rem;">
+      <i class="fas fa-paper-plane" style="color: var(--primary); cursor: pointer;"></i>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-num">ASSISTANCE</span>
+          <h2>Inquire & <br>Experience</h2>
+          <p style="margin-bottom: 60px; max-width: 400px;">Our concierge team is available for private appointments,
+            bespoke commissions, and global shipping inquiries.</p>
+
+          <div class="info-block">
+            <h4>Global Flagship</h4>
+            <p>12 Bruton Street, Mayfair<br>London W1J 6QA</p>
+          </div>
+
+          <div class="info-block">
+            <h4>Private Inquiries</h4>
+            <a href="mailto:concierge@materialbitch.com">concierge@materialbitch.com</a><br>
+            <a href="tel:+442079460000">+44 207 946 0000</a>
+          </div>
+
+          <div class="info-block">
+            <h4>Digital Presence</h4>
+            <p>Open 24/7 Globally</p>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="inquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control" placeholder="Dominic Saint">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="dominic@vogue.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Collection Interest</label>
+                <select class="form-control" style="background: var(--bg-accent);">
+                  <option>Fine Jewelry Collection</option>
+                  <option>The Bespoke Commission</option>
+                  <option>Restoration Services</option>
+                  <option>Press Inquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Nature of Inquiry</label>
+                <input type="text" class="form-control" placeholder="Private Viewing">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 60px;">
+              <label>Personal Message</label>
+              <textarea class="form-control" rows="4"
+                placeholder="How may we assist in your pursuit of brilliant excess?"></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo brand-font">Material Bitch</div>
+          <p>Unapologetic. Excessive. Heirloom Quality. We don't make jewelry for the masses—we craft legacies for the
+            few who know their worth.</p>
+          <div style="display: flex; gap: 20px; margin-top: 30px; font-size: 1.2rem; color: var(--primary);">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-tiktok"></i>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Boutique</h4>
+          <ul>
+            <li><a href="#">Rings & Bands</a></li>
+            <li><a href="#">Necklaces</a></li>
+            <li><a href="#">The Watch Vault</a></li>
+            <li><a href="#">Haute Horology</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>House Services</h4>
+          <ul>
+            <li><a href="#">Private Viewing</a></li>
+            <li><a href="#">Bespoke Design</a></li>
+            <li><a href="#">Restoration</a></li>
+            <li><a href="#">Resale Archive</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Inquiries</h4>
+          <ul>
+            <li><a href="#">The Concierge</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Sustainability Report</a></li>
+            <li><a href="#">Global Shipping</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; 2026 Material Bitch International. All Rights Reserved.
+        </div>
+        <div class="payment-icons">
+          <i class="fab fa-cc-amex"></i>
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Global UI Elements
+    const overlay = document.getElementById('overlay');
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    // Sidebar Elements
+    const openCart = document.getElementById('openCart');
+    const closeCart = document.getElementById('closeCart');
+    const cartSidebar = document.getElementById('cartSidebar');
+
+    // Modal Elements
+    const priceModal = document.getElementById('priceModal');
+    const closePriceModal = document.getElementById('closePriceModal');
+    const exploreButtons = document.querySelectorAll('.explore-price-btn');
+
+    // Concierge Elements
+    const conciergeBtn = document.getElementById('concierge-btn');
+    const conciergeWidget = document.getElementById('conciergeWidget');
+
+    // Preloader Logic
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 1000);
+      }, 2000);
+    });
+
+    // Price Modal Logic
+    exploreButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.product-card');
+        const title = card.querySelector('h3').innerText;
+        const total = card.querySelector('.price').innerText;
+        const img = card.querySelector('img').src;
+        const specs = card.querySelector('.specs').innerText;
+
+        // Dynamic Breakdown Simulation
+        const rawTotal = parseInt(total.replace('$', '').replace(',', ''));
+        const metal = Math.round(rawTotal * 0.3);
+        const gems = Math.round(rawTotal * 0.55);
+        const labor = rawTotal - metal - gems;
+
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalTotal').innerText = total;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalBatch').innerText = specs;
+        document.getElementById('metalPrice').innerText = '$' + metal.toLocaleString();
+        document.getElementById('gemPrice').innerText = '$' + gems.toLocaleString();
+        document.getElementById('laborPrice').innerText = '$' + labor.toLocaleString();
+
+        priceModal.classList.add('open');
+        overlay.style.opacity = '1';
+        overlay.style.visibility = 'visible';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closePriceModal.addEventListener('click', () => {
+      priceModal.classList.remove('open');
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Sidebar Logic
+    openCart.addEventListener('click', () => {
+      cartSidebar.classList.add('open');
+      overlay.style.opacity = '1';
+      overlay.style.visibility = 'visible';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+      document.body.style.overflow = 'auto';
+    });
+
+    overlay.addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+      priceModal.classList.remove('open');
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Hamburger Menu Logic
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Concierge Logic
+    conciergeBtn.addEventListener('click', () => {
+      conciergeWidget.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!conciergeWidget.contains(e.target) && !conciergeBtn.contains(e.target)) {
+        conciergeWidget.classList.remove('open');
+      }
+    });
+
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section > .container, .product-card, .footer-grid').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(50px)';
+      el.style.transition = 'all 1s cubic-bezier(0.23, 1, 0.32, 1)';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
